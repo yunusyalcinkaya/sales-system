@@ -35,3 +35,6 @@ G
 catalog-service/pom.xml,a\5\a53789dc44af37243dacf253849d0d8fefa6fa76
 e
 5catalog-service/.mvn/wrapper/maven-wrapper.properties,6\9\69d1ce7eb9a0a06697086a3ce5c3f9207b1b8642
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
