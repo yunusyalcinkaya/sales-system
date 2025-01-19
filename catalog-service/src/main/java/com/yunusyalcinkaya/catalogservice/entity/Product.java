@@ -16,14 +16,14 @@ public class Product {
     @Column(length = 50, nullable = false)
     private String name;
     @Column(length = 50, nullable = false, unique = true)
-    private String productCode;
+    private String code;
     @Positive(message = "Price must be positive")
     @Column(precision = 8, scale = 2)
     private BigDecimal price;
 
     public Product(String name, String code, BigDecimal price) {
         this.name = name;
-        this.productCode = code;
+        this.code = code;
         this.price = price;
     }
 
@@ -46,12 +46,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getProductCode() {
-        return productCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setCode(String productCode) {
+        this.code = productCode;
     }
 
     public BigDecimal getPrice() {

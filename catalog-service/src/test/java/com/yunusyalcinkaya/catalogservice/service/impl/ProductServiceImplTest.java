@@ -41,7 +41,7 @@ class ProductServiceImplTest {
 
         // then
         assertAll(() -> assertEquals("Laptop", actual.getName()),
-                () -> assertEquals(productCode, actual.getProductCode()),
+                () -> assertEquals(productCode, actual.getCode()),
                 () -> assertEquals(BigDecimal.valueOf(29999.99), actual.getPrice())
         );
     }
