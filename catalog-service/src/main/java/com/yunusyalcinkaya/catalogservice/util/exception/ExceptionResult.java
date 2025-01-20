@@ -1,28 +1,48 @@
 package com.yunusyalcinkaya.catalogservice.util.exception;
 
-import java.time.LocalDateTime;
-
 public class ExceptionResult<T> {
 
-    private final LocalDateTime timestamp;
-    private final ReturnType returnType;
-    private final T content;
+    private int httpStatusCode;
+    private String errorCode;
+    private T errorContent;
+    private String path;
 
-    public ExceptionResult(ReturnType returnType, T content) {
-        this.timestamp = LocalDateTime.now();
-        this.returnType = returnType;
-        this.content = content;
+    public ExceptionResult(int httpStatusCode, String errorCode, T errorContent, String path) {
+        this.httpStatusCode = httpStatusCode;
+        this.errorCode = errorCode;
+        this.errorContent = errorContent;
+        this.path = path;
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
+    public int getHttpStatusCode() {
+        return httpStatusCode;
     }
 
-    public ReturnType getReturnType() {
-        return returnType;
+    public void setHttpStatusCode(int httpStatusCode) {
+        this.httpStatusCode = httpStatusCode;
     }
 
-    public T getContent() {
-        return content;
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public T getErrorContent() {
+        return errorContent;
+    }
+
+    public void setErrorContent(T errorContent) {
+        this.errorContent = errorContent;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
