@@ -13,8 +13,7 @@ import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,7 +28,7 @@ class ProductServiceImplTest {
     private ProductServiceImpl productService;
 
     @Test
-    void getByCode() {
+    void getByCode_when_repositoryReturnObject_then_returnProductInformation() {
         // given
         String productCode = "LAP-12345";
         Product product = new Product("Laptop", productCode, BigDecimal.valueOf(29999.99));
@@ -44,5 +43,19 @@ class ProductServiceImplTest {
                 () -> assertEquals(productCode, actual.getCode()),
                 () -> assertEquals(BigDecimal.valueOf(29999.99), actual.getPrice())
         );
+    }
+
+    @Test
+    void getByCode_when_repositoryReturnNull_then_returnNull() {
+        // given
+        String productCode = "LAP-12345";
+
+        when(productRepository.findByCode(productCode)).thenReturn(null);
+
+        // when
+        ProductInformation actual = productService.getByCode(productCode);
+
+        // then
+        assertNull(actual);
     }
 }
