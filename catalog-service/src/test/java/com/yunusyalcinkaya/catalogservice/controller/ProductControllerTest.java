@@ -3,7 +3,6 @@ package com.yunusyalcinkaya.catalogservice.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yunusyalcinkaya.catalogservice.dto.CustomResponseEntity;
 import com.yunusyalcinkaya.catalogservice.dto.ProductInformation;
-import com.yunusyalcinkaya.catalogservice.repository.ProductRepository;
 import com.yunusyalcinkaya.catalogservice.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +27,6 @@ class ProductControllerTest {
 
     @MockitoBean
     private ProductService productService;
-    @MockitoBean
-    private ProductRepository productRepository;
 
     @Test
     void getByCode_when_givenProductCode_then_returnProductInfotmation() throws Exception {

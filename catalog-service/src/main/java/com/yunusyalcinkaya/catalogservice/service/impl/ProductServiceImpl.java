@@ -11,16 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
     private final ModelMapper modelMapper;
-
-
-    public ProductServiceImpl(ProductRepository repository, ModelMapper modelMapper) {
-        this.repository = repository;
-        this.modelMapper = modelMapper;
-    }
 
     @Override
     public ProductInformation getByCode(String code) {
