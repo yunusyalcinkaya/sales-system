@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "products")
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "products")
 public class Product {
 
     @Id

@@ -1,4 +1,4 @@
-package com.yunusyalcinkaya.catalogservice.configuration;
+package com.yunusyalcinkaya.commonutils.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

@@ -1,4 +1,4 @@
-package com.yunusyalcinkaya.catalogservice.util.exception;
+package com.yunusyalcinkaya.commonutils.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

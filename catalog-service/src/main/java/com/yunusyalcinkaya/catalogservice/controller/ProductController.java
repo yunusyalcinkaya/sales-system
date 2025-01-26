@@ -1,8 +1,8 @@
 package com.yunusyalcinkaya.catalogservice.controller;
 
-import com.yunusyalcinkaya.catalogservice.dto.CustomResponseEntity;
 import com.yunusyalcinkaya.catalogservice.dto.ProductInformation;
 import com.yunusyalcinkaya.catalogservice.service.ProductService;
+import com.yunusyalcinkaya.commonutils.dto.CustomResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;

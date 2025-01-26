@@ -1,4 +1,4 @@
-package com.yunusyalcinkaya.catalogservice.dto;
+package com.yunusyalcinkaya.commonutils.dto;
 
 import lombok.Getter;
 import lombok.Setter;

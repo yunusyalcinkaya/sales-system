@@ -1,4 +1,4 @@
-package com.yunusyalcinkaya.catalogservice.util.exception.customexceptions;
+package com.yunusyalcinkaya.commonutils.exception.customexceptions;
 
 import lombok.Getter;
 

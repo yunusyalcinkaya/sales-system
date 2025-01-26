@@ -1,7 +1,7 @@
-package com.yunusyalcinkaya.catalogservice.util.exception;
+package com.yunusyalcinkaya.commonutils.exception;
 
-import com.yunusyalcinkaya.catalogservice.dto.CustomResponseEntity;
-import com.yunusyalcinkaya.catalogservice.util.exception.customexceptions.BusinessException;
+import com.yunusyalcinkaya.commonutils.dto.CustomResponseEntity;
+import com.yunusyalcinkaya.commonutils.exception.customexceptions.BusinessException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,6 @@
 package com.yunusyalcinkaya.catalogservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yunusyalcinkaya.catalogservice.dto.CustomResponseEntity;
 import com.yunusyalcinkaya.catalogservice.dto.ProductInformation;
 import com.yunusyalcinkaya.catalogservice.service.ProductService;
 import org.junit.jupiter.api.Test;
