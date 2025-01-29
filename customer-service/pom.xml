@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.yunusyalcinkaya</groupId>
     <artifactId>customer-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>customer-service</name>
     <description>customer-service</description>
     <url/>
@@ -31,8 +31,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -48,8 +48,7 @@
         <dependency>
             <groupId>com.yunusyalcinkaya</groupId>
             <artifactId>common-utils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

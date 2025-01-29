@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  postgresql:
-    container_name: postgresql
+  catalog_postgresql_db:
+    container_name: catalog-postgresql-db
     image: postgres:latest
     restart: always
     environment:
@@ -12,18 +12,15 @@ services:
       - "5432:5432"
     volumes:
       - postgresql_data:/var/lib/postgresql/data
-  pgadmin:
+  postgresql_pgadmin:
     image: dpage/pgadmin4
-    container_name: catalog-pgadmin
+    container_name: postgresql-pgadmin
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
-      PGADMIN_DEFAULT_PASSWORD: strong-password
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: 12345
     ports:
       - "8888:80"
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
 
 volumes:
   postgresql_data:
-  pgadmin_data:
