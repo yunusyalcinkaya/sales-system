@@ -1,5 +1,6 @@
 package com.yunusyalcinkaya.catalogservice.entity;
 
+import com.yunusyalcinkaya.catalogservice.enums.Category;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
@@ -25,6 +26,15 @@ public class Product {
 
     @Column(length = 50, nullable = false, unique = true)
     private String code;
+
+    @Column(length = 50, nullable = false)
+    private String brand;
+
+    @Column(length = 50, nullable = false)
+    private String model;
+
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     @Positive(message = "Price must be positive")
     @Column(precision = 8, scale = 2)
