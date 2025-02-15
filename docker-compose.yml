@@ -6,24 +6,41 @@ services:
     image: postgres:latest
     restart: always
     environment:
+      POSTGRES_DB: catalog_db # Database to be created automatically
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
-      - catalog_postgresql_db:/var/lib/postgresql/data
+      - catalog_postgresql_db:/var/lib/postgresql/data1
 
   customer_postgresql_db:
     container_name: customer-postgresql-db
     image: postgres:latest
     restart: always
     environment:
+      POSTGRES_DB: customer_db # Database to be created automatically
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "5433:5433"
+    command: -p 5433 # postgresql run on port 5432 even if port forwarding is used. So the command was added
     volumes:
-      - customer_postgresql_db:/var/lib/postgresql/data
+      - customer_postgresql_db:/var/lib/postgresql/data2
+
+  order_postgresql_db:
+    container_name: order-postgresql-db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: order_db # Database to be created automatically
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5434"
+    command: -p 5434 # postgresql run on port 5432 even if port forwarding is used. So the command was added
+    volumes:
+      - order_postgresql_db:/var/lib/postgresql/data3
 
   postgresql_pgadmin:
     image: dpage/pgadmin4
@@ -43,3 +60,4 @@ services:
 volumes:
   catalog_postgresql_db:
   customer_postgresql_db:
+  order_postgresql_db:

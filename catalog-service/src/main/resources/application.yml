@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8080 # run on random port if set 0
 
 spring:
   application:

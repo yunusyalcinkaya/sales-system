@@ -2,6 +2,7 @@ package com.yunusyalcinkaya.catalogservice.service.impl;
 
 import com.yunusyalcinkaya.catalogservice.dto.ProductInformation;
 import com.yunusyalcinkaya.catalogservice.entity.Product;
+import com.yunusyalcinkaya.catalogservice.enums.Category;
 import com.yunusyalcinkaya.catalogservice.repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,7 +32,7 @@ class ProductServiceImplTest {
     void getByCode_when_repositoryReturnObject_then_returnProductInformation() {
         // given
         String productCode = "LAP-12345";
-        Product product = new Product("Laptop", productCode, BigDecimal.valueOf(29999.99));
+        Product product = new Product("Laptop", productCode, "HP", "1234", Category.LAPTOP, BigDecimal.valueOf(29999.99));
 
         when(productRepository.findByCode(productCode)).thenReturn(product);
 

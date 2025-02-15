@@ -40,9 +40,12 @@ public class Product {
     @Column(precision = 8, scale = 2)
     private BigDecimal price;
 
-    public Product(String name, String code, BigDecimal price) {
+    public Product(String name, String code, String brand, String model, Category category, BigDecimal price) {
         this.name = name;
         this.code = code;
+        this.brand = brand;
+        this.model = model;
+        this.category = category;
         this.price = price;
     }
 }
