@@ -27,6 +27,6 @@ spring:
 
 cache:
   redis:
-    ttl: # Time To Live
+    ttl: # Time To Live (minute)
       default: 60
       products: 1

@@ -29,7 +29,7 @@ public class Order {
     @Column(nullable = false)
     private LocalDateTime orderDate;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderItem> orderItemList;
 
     public Order(String customerNumber, String addressId, LocalDateTime orderDate, List<OrderItem> orderItemList) {

@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @Table(name = "order_items")
-public class OrderItem {
+public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -26,12 +26,12 @@ public class OrderItem {
     private short quantity;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    @JoinColumn(name = "cart_id", nullable = false)
+    private Cart cart;
 
-    public OrderItem(String productCode, short quantity, Order order) {
+    public CartItem(String productCode, short quantity, Cart cart) {
         this.productCode = productCode;
         this.quantity = quantity;
-        this.order = order;
+        this.cart = cart;
     }
 }
