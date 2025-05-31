@@ -26,8 +26,18 @@ public class NullSafeUtil {
             throw new BusinessException(errorCode, errorMessage);
     }
 
+    public static void checkIfBlank(String object, ServiceResponse response) {
+        if (StringUtils.isBlank(object))
+            throw new BusinessException(response.getCode(), response.getMessage());
+    }
+
     public static void checkIfEmpty(Collection<?> collection, String errorCode, String errorMessage) {
         if (CollectionUtils.isEmpty(collection))
             throw new BusinessException(errorCode, errorMessage);
+    }
+
+    public static void checkIfEmpty(Collection<?> collection, ServiceResponse response) {
+        if (CollectionUtils.isEmpty(collection))
+            throw new BusinessException(response.getCode(), response.getMessage());
     }
 }

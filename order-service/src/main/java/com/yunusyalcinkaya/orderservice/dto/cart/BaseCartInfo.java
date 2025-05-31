@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -14,5 +15,6 @@ import java.util.List;
 public class BaseCartInfo {
 
     private String customerNumber;
+    private BigDecimal totalPrice;
     private List<BaseCartItemInfo> cartItemList;
 }

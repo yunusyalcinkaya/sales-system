@@ -8,7 +8,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum OrderServiceResponse implements ServiceResponse {
 
-    CART_NOT_FOUND("100", "Cart not found.");
+    CART_NOT_FOUND("100", "Cart not found."),
+    CART_ITEM_LIST_EMPTY("101", "Cart item list is empty.");
 
     private final String code;
     private final String message;

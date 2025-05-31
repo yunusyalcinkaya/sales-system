@@ -1,20 +1,15 @@
 package com.yunusyalcinkaya.customerservice.entity;
 
+import com.yunusyalcinkaya.commonutils.entity.BaseEntity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @Entity
 @Table(name = "customers")
-public class Customer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+public class Customer extends BaseEntity {
 
     @Column(length = 10, nullable = false, unique = true)
     private String customerNumber;

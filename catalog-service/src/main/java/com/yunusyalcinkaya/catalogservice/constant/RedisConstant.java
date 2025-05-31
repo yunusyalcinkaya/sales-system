@@ -1,8 +1,10 @@
 package com.yunusyalcinkaya.catalogservice.constant;
 
-public class RedisConstant {
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-    private RedisConstant() {}
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class RedisConstant {
 
     public static final String ALL_PRODUCTS = "ALL_PRODUCTS";
 }

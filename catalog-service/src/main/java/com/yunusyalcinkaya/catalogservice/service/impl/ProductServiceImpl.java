@@ -14,8 +14,10 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductInformation> getAll() {
         List<Product> products = repository.findAll();
         if (CollectionUtils.isEmpty(products))
-            return null;
+            return Collections.emptyList();
 
         return products.stream()
                 .map(product -> modelMapper.map(product, ProductInformation.class))
@@ -49,7 +51,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductInformation> getByCategory(Category category) {
         List<Product> products = repository.findAllByCategory(category);
         if (CollectionUtils.isEmpty(products))
-            return null;
+            return Collections.emptyList();
 
         return products.stream()
                 .map(product -> modelMapper.map(product, ProductInformation.class))
@@ -60,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductInformation> getByBrandAndModel(String brand, String model) {
         List<Product> products = repository.findAllByBrandAndModel(brand, model);
         if (CollectionUtils.isEmpty(products))
-            return null;
+            return Collections.emptyList();
 
         return products.stream()
                 .map(product -> modelMapper.map(product, ProductInformation.class))
@@ -72,5 +74,24 @@ public class ProductServiceImpl implements ProductService {
     public void add(AddProductRequest request) {
         Product product = modelMapper.map(request, Product.class);
         repository.save(product);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = {RedisConstant.ALL_PRODUCTS})
+    public void update(UUID id, AddProductRequest request) {
+        Product product = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Product not found"));
+        product.setName(request.getName());
+        product.setCode(request.getCode());
+        product.setCategory(request.getCategory());
+        product.setBrand(request.getBrand());
+        product.setModel(request.getModel());
+        product.setPrice(request.getPrice());
+        repository.save(product);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = {RedisConstant.ALL_PRODUCTS})
+    public void delete(UUID id) {
+        repository.deleteById(id);
     }
 }
