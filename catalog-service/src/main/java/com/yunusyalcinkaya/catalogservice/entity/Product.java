@@ -1,6 +1,7 @@
 package com.yunusyalcinkaya.catalogservice.entity;
 
 import com.yunusyalcinkaya.catalogservice.enums.Category;
+import com.yunusyalcinkaya.commonutils.entity.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
@@ -8,18 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @Table(name = "products")
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+public class Product extends BaseEntity {
 
     @Column(length = 50, nullable = false)
     private String name;

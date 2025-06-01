@@ -72,7 +72,7 @@ class ProductServiceImplTest {
         request.setCode("PHN-001");
         request.setBrand("Apple");
         request.setModel("iPhone 14");
-        request.setCategory(Category.PHONE);
+        request.setCategory(Category.SMART_PHONE);
         request.setPrice(BigDecimal.valueOf(19999.99));
 
         // when
@@ -86,7 +86,7 @@ class ProductServiceImplTest {
     void update_shouldUpdateProduct() {
         // given
         UUID id = UUID.randomUUID();
-        Product product = new Product("OldName", "OLD-001", "OldBrand", "OldModel", Category.PHONE, BigDecimal.valueOf(1000));
+        Product product = new Product("OldName", "OLD-001", "OldBrand", "OldModel", Category.SMART_PHONE, BigDecimal.valueOf(1000));
         AddProductRequest request = new AddProductRequest();
         request.setName("NewName");
         request.setCode("NEW-001");

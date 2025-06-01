@@ -35,8 +35,11 @@ public class RedisConfig {
     public RedisCacheManagerBuilderCustomizer redisCacheManagerBuilderCustomizer() {
         return builder -> {
             // By creating multiple instances of the defined RedisCacheConfiguration, we can assign unique Time-To-Live (TTL) values to each cache name.
-            RedisCacheConfiguration redisCacheConfigFotGettingAllProducts = RedisCacheConfiguration.defaultCacheConfig()
-                    .entryTtl(Duration.ofMinutes(timeToLiveForGettingAllProducts));
+            RedisCacheConfiguration redisCacheConfigFotGettingAllProducts = RedisCacheConfiguration
+                    .defaultCacheConfig()
+                    .entryTtl(Duration.ofMinutes(timeToLiveForGettingAllProducts))
+                    .disableCachingNullValues()
+                    .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
 
             builder.withCacheConfiguration(RedisConstant.ALL_PRODUCTS, redisCacheConfigFotGettingAllProducts);
         };

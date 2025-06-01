@@ -92,6 +92,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @CacheEvict(cacheNames = {RedisConstant.ALL_PRODUCTS})
     public void delete(UUID id) {
-        repository.deleteById(id);
+        Product product = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Product not found"));
+        product.delete();
+        repository.save(product);
     }
 }
